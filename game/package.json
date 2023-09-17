@@ -1,0 +1,12 @@
+{
+  "name": "@rosario-city/game",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc --build tsconfig.json"
+  },
+  "devDependencies": {
+    "typescript": "^5.2.2"
+  }
+}

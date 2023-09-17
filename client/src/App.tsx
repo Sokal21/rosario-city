@@ -53,9 +53,7 @@ function App() {
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
         <Test />
-        <GeoJSON
-          data={geoData as any}
-        />
+        <GeoJSON data={geoData as any} />
       </MapContainer>
     </div>
   );

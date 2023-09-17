@@ -3,14 +3,14 @@ import React, {
   MutableRefObject,
   createContext,
   useCallback,
-  useContext,
+  // useContext,
   useEffect,
   useRef,
   useState,
 } from "react";
 import { createVoidContext } from "utils/voidContext";
-import { ResourceContext } from "./ResourceProvider";
-import { Farm } from "estructures/farm";
+// import { ResourceContext } from "./ResourceProvider";
+// import { Farm } from "estructures/farm";
 import { LatLng } from "leaflet";
 
 interface EmpireContextType {
@@ -26,7 +26,7 @@ export const EmpireContext = createContext<EmpireContextType>(
 export const EmpireProvider: React.FC<React.PropsWithChildren> = ({
   children,
 }) => {
-  const { bullets, dope } = useContext(ResourceContext);
+  // const { bullets, dope } = useContext(ResourceContext);
   const [marker, setMarkerAction] = useState<LatLng | null>(null);
 
   const state = useRef<{
