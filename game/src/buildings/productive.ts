@@ -1,5 +1,5 @@
+import { BuildingDestroyed } from "../errors";
 import { EventEmitter } from "../events/index";
-import { BuildingDestroyed } from "./errors";
 import { IBuilding } from "./index";
 
 export interface IProductiveBuilding {
@@ -10,7 +10,7 @@ export interface IProductiveBuilding {
     onUpgrade(): number
 }
 
-export class ProductiveBuilding implements IBuilding, IProductiveBuilding {
+export class StandardProductiveBuilding implements IBuilding, IProductiveBuilding {
     constructor(
         public id: number,
         public lat: number,
@@ -19,20 +19,26 @@ export class ProductiveBuilding implements IBuilding, IProductiveBuilding {
         public icon: string,
         public level: number,
         public hitPoints: number,
+        public resourceId: string,
         private eventEmmiter: EventEmitter,
     ) {
-
     }
-    resourceId: string;
+
+    private productionByLevelRate(): number {
+        return (this.level + 1) * 5
+    }
 
     onCreate(): number {
-        throw new Error("Method not implemented.");
+        return this.productionByLevelRate();
     }
     onDestroy(): number {
-        throw new Error("Method not implemented.");
+        return this.productionByLevelRate();
     }
     onUpgrade(): number {
-        throw new Error("Method not implemented.");
+        this.level++;
+        this.update();
+
+        return this.productionByLevelRate();
     }
 
     update() {

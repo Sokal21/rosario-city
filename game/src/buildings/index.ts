@@ -1,5 +1,7 @@
+export type BuildingId = number;
+
 export interface IBuilding {
-    id: number;
+    id: BuildingId;
     lat: number;
     lng: number;
     name: string

@@ -1,8 +1,10 @@
 import { EventEmitter } from "../events/index";
-import { InsuficientResource } from "./errors";
+import { InsuficientResource } from "../errors";
+
+export type ResourceId = string;
 
 export interface IResource {
-    id: string;
+    id: ResourceId;
     amount: number;
     productionRate: number;
     limit: number;

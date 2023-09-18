@@ -1,4 +1,6 @@
+import { ResourceId } from "./resource";
+
 export interface ResourceConsumption {
-    resourceId :string;
+    resourceId: ResourceId;
     amount: number;
 }
