@@ -1,3 +1,4 @@
+import { EventEmitter } from "../events/index";
 import { InsuficientResource } from "./errors";
 
 export interface IResource {
@@ -22,7 +23,7 @@ export class Resource implements IResource {
         public productionRate: number,
         public limit: number,
         public lastTimeCalculated: Date,
-        private eventEmmiter: any, // TODO: REVIEW
+        private eventEmmiter: EventEmitter,
     ) {
     }
 
@@ -55,10 +56,9 @@ export class Resource implements IResource {
     }
 
     update() {
-        // TODO: ver como se hace esto bien
-        this.eventEmmiter({
+        this.eventEmmiter.emitEvent({
             type: "updateResource",
-            resource: this,
+            payload: this,
         })
     }
 

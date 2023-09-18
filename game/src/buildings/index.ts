@@ -3,10 +3,9 @@ export interface IBuilding {
     lat: number;
     lng: number;
     name: string
-    icon
-    level
-    hitPoints
+    icon: string;
+    level: number;
+    hitPoints: number;
 
-    getDamage()
-
+    getDamage(amount: number): void;
 }
